@@ -20,4 +20,8 @@ let arregloRevista:Revista[]=[revista1,revista2];
 let libreria1:Libreria=new Libreria(arregloCliente,arregloLibro,arregloRevista);
 
 let primerPrecio=libreria1.calcularPrecio(cliente1,libro1);
+console.log(libreria1.comprar("campanita",11111));
 console.log(primerPrecio);
+console.log(libreria1.leGustaLibro("iron man",11111));
+console.log(libreria1.leGustaLibroEstricto("iron man",11111));
+

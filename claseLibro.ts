@@ -9,10 +9,10 @@ export class Libro extends Padre {
         this.genero=pGenero;
         this.resumen=pResumen;
     }
-    getResumen():string{
+    public getResumen(): string {
         return this.resumen;
     }
-    getGenero():string{
+    public getGenero(): string {
         return this.genero;
     }
 }
