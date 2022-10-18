@@ -8,14 +8,14 @@ export class Cliente {
     private descuento:number;
     private compras: string[];
 
-    public constructor(pNombre:string,pApellido:string,pDNI:number,pDireccion:string,pListAutorFav:string[],pListGenFav:string[],pDescuento:number){
+    public constructor(pNombre:string,pApellido:string,pDNI:number,pDireccion:string){
         this.nombre=pNombre;
         this.apellido=pApellido;
         this.DNI=pDNI;
         this.direccion=pDireccion;
-        this.listAutorFav=pListAutorFav;
-        this.listGenFav=pListGenFav;
-        this.descuento=pDescuento;
+        this.listAutorFav=[];
+        this.listGenFav=[];
+        this.descuento= 0;
         this.compras = [];
     }
     public getNombre():string{
@@ -44,7 +44,28 @@ export class Cliente {
         return this.compras;
     }
 
-    public addCompras(paramCompra: string): void {
+    public addCompras(paramCompra: string, paramAutor: string, paramGenero: string): void {
         this.compras.push(paramCompra);
+        this.addAutorFavorito(paramAutor);
+        this.addGeneroFavorito(paramGenero);
     }
+
+    private addAutorFavorito(paramAutor: string): void {
+        for(let i = 0; i < this.listAutorFav.length; i++) {
+            if(paramAutor === this.listAutorFav[i]) {
+                return
+            }
+        }
+        this.listAutorFav.push(paramAutor)
+    }
+
+    private addGeneroFavorito(paramGenero: string): void {
+        for(let i = 0; i < this.listGenFav.length; i++) {
+            if(paramGenero === this.listGenFav[i]) {
+                return
+            }
+        }
+        this.listGenFav.push(paramGenero)
+    }
+
 }

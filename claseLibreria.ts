@@ -110,9 +110,12 @@ export class Libreria {
         let productoComprado: string = "No se compro nada";
         let precio: number = this.devolverPrecio(paramNombre);
         let indexCliente: number = this.devolverIndexCliente(paramDNI);
-
+        let indexLibro: number = this.devolverIndexLibro(paramNombre);
+        let paramAutor: string = this.listaLibros[indexLibro].getAutor();
+        let paramGenero: string = this.listaLibros[indexLibro].getGenero();
+        paramNombre = this.listaLibros[indexLibro].getTitulo();
         if(precio !== -1 && indexCliente !== -1) {
-            this.listaClientes[indexCliente].addCompras(paramNombre);
+            this.listaClientes[indexCliente].addCompras(paramNombre, paramAutor, paramGenero);
             productoComprado = this.listaClientes[indexCliente].getNombre() + " compro el producto " + paramNombre;
         }
 

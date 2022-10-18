@@ -5,8 +5,8 @@ import { Libreria } from "./claseLibreria";
 
 let autores = ['Pedro','Rosa','Juan','Araceli'];
 let generos= ['Drama','Terror','Comedia','Vaqueros'];
-let cliente1:Cliente=new Cliente('Juan','Perez',11111,'Velez Sarfield',autores,generos,0.1);
-let cliente2:Cliente=new Cliente('Hernan','Rodriguez',112212,'Nuñez',autores,generos,0.3);
+let cliente1:Cliente=new Cliente('Juan','Perez',11111,'Velez Sarfield');
+let cliente2:Cliente=new Cliente('Hernan','Rodriguez',112212,'Nuñez');
 
 let libro1:Libro=new Libro('Campanita',50,'Pedro',200,'Comedia','sadfasdasdasdasdsad');
 let libro2:Libro=new Libro('iron man',150,'Juan',300,'Drama','asfasdadqdq');
@@ -24,4 +24,4 @@ console.log(libreria1.comprar("campanita",11111));
 console.log(primerPrecio);
 console.log(libreria1.leGustaLibro("iron man",11111));
 console.log(libreria1.leGustaLibroEstricto("iron man",11111));
-
+console.log(cliente1.getListaAutoresFavoritos())
