@@ -21,21 +21,67 @@ export class Cliente {
     public getNombre():string{
         return this.nombre;
     }
+
+    public setNombre(pNombre: string): void {
+        this.nombre = pNombre;
+    }
+
+    public setApellido(pApellido): void {
+        this.apellido = pApellido
+    }
+
     public getApellido():string{
         return this.apellido;
     }
+
+    public setDNI(pDNI: number): void {
+        this.DNI = pDNI;
+    }
+
     public getDNI():number{
         return this.DNI;
     }
+
+    public setDireccion(pDireccion: string): void {
+        this.direccion = pDireccion;
+    }
+
     public getDireccion():string{
         return this.direccion;
     }
+
+    public addAutorFavorito(paramAutor: string): boolean {
+        let ingresaAutor: boolean = false;
+        for(let i = 0; i < this.listAutorFav.length; i++) {
+            if(paramAutor === this.listAutorFav[i]) {
+                return ingresaAutor;
+            }
+        }
+        this.listAutorFav.push(paramAutor);
+        ingresaAutor = true
+        return ingresaAutor;
+    }
+
     public getListaAutoresFavoritos(): string[] {
         return this.listAutorFav;
     }
+
+    public addGeneroFavorito(paramGenero: string): boolean {
+        let ingresaGenero: boolean = false;
+        for(let i = 0; i < this.listAutorFav.length; i++) {
+            if(paramGenero === this.listAutorFav[i]) {
+                return ingresaGenero;
+            }
+        }
+        this.listAutorFav.push(paramGenero);
+        ingresaGenero = true
+        return ingresaGenero;
+    }
+
     public getListaGeneroFavoritos(): string[] {
         return this.listGenFav;
     }
+
     public getDescuento(): number {
         return this.descuento;
     }
@@ -46,22 +92,24 @@ export class Cliente {
 
     public addCompras(paramCompra: string, paramAutor: string, paramGenero: string): void {
         this.compras.push(paramCompra);
-        this.addAutorFavorito(paramAutor);
-        this.addGeneroFavorito(paramGenero);
+        this.addAutorFavoritoPorCompra(paramAutor);
+        this.addGeneroFavoritoPorCompra(paramGenero);
     }
 
-    private addAutorFavorito(paramAutor: string): void {
+    private addAutorFavoritoPorCompra(paramAutor: string): void {
         for(let i = 0; i < this.listAutorFav.length; i++) {
             if(paramAutor === this.listAutorFav[i]) {
+                //esto no se ve bien, pero creo q funciona, podria usar un break?
                 return
             }
         }
         this.listAutorFav.push(paramAutor)
     }
 
-    private addGeneroFavorito(paramGenero: string): void {
+    private addGeneroFavoritoPorCompra(paramGenero: string): void {
         for(let i = 0; i < this.listGenFav.length; i++) {
             if(paramGenero === this.listGenFav[i]) {
+                //esto no se ve bien, pero creo q funciona, podria usar un break?
                 return
             }
         }
